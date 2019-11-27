@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">framework</string>
+
+    <string name="home_tab1">首页</string>
+    <string name="home_tab2">发现</string>
+    <string name="home_tab3">消息</string>
+    <string name="home_tab4">我的</string>
+</resources>

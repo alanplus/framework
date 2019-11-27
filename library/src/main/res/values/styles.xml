@@ -1,0 +1,86 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="XmAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="title_bar_color">?colorPrimary</item>
+        <item name="title_bar_back_icon">@drawable/icon_title_bar_back</item>
+        <item name="status_bar_color">?title_bar_color</item>
+        <item name="status_bar_text_is_white">false</item>
+        <item name="is_debug">false</item>
+        <item name="home_tab_menu">@menu/menu_home_bottom_nav</item>
+    </style>
+
+    <declare-styleable name="AudioViewStyle">
+        <attr name="audio_type" format="enum">
+            <enum name="audio_type_auto" value="0" />
+            <enum name="audio_type_assets" value="1" />
+            <enum name="audio_type_file" value="2" />
+            <enum name="audio_type_net" value="3" />
+        </attr>
+        <attr name="default_backgroud" format="reference" />
+        <attr name="anim_backgroud" format="reference" />
+        <attr name="loading_drawable" format="reference" />
+        <attr name="anim" format="reference" />
+        <attr name="audio" format="reference|string" />
+        <attr name="anim_type" format="enum">
+            <!-- 背景帧动画 -->
+            <enum name="type_bg" value="0" />
+            <!-- 背景静态 透明度变化 或者属性动画 -->
+            <enum name="type_anim_bg" value="1" />
+        </attr>
+    </declare-styleable>
+
+<!--    <style name="WeiciKeyboardButtonStyle">-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_height">match_parent</item>-->
+<!--        <item name="android:layout_weight">1</item>-->
+<!--        <item name="android:layout_marginLeft">2dp</item>-->
+<!--        <item name="android:layout_marginRight">2dp</item>-->
+<!--        <item name="android:background">@drawable/bg_key_1_style1</item>-->
+<!--        <item name="android:textSize">18dp</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:gravity">center</item>-->
+<!--    </style>-->
+
+<!--    <style name="WeiciKeyboardTextStyle">-->
+<!--        <item name="android:textSize">18dp</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:gravity">center</item>-->
+<!--        <item name="android:background">@drawable/bg_key_1_style1</item>-->
+<!--    </style>-->
+
+<!--    <style name="WeiciKeyboardStyle">-->
+<!--        <item name="android:paddingLeft">5dp</item>-->
+<!--        <item name="android:paddingTop">10dp</item>-->
+<!--        <item name="android:paddingRight">5dp</item>-->
+<!--        <item name="android:layout_height">@dimen/key_borad_height</item>-->
+<!--    </style>-->
+
+<!--    <style name="WeiciKeyboardPreTextStyle">-->
+<!--        <item name="android:textSize">18dp</item>-->
+<!--        <item name="android:textColor">#FFFFFF</item>-->
+<!--        <item name="android:gravity">center</item>-->
+<!--        <item name="android:background">@drawable/bg_key_pre_style1</item>-->
+<!--    </style>-->
+
+    <style name="BottomSheet" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="customDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

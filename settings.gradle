@@ -1,0 +1,2 @@
+include ':app', ':common', ':library', ':widget', ':db'
+rootProject.name='framework'

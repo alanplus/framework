@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="title_bar_color" format="color|reference" />
+    <attr name="title_bar_title_color" format="color|reference" />
+    <attr name="title_bar_title_size" format="dimension" />
+    <attr name="title_bar_back_icon" format="reference" />
+    <attr name="title_bar_enable_divider" format="boolean" />
+    <attr name="title_bar_right_text_color" format="color" />
+    <attr name="title_bar_right_text_color_press" format="color" />
+    <attr name="title_bar_right_text_size" format="dimension" />
+
+    <!-- 状态栏背景颜色 -->
+    <attr name="status_bar_color" format="color|reference" />
+    <!-- 状态栏文字颜色 -->
+    <attr name="status_bar_text_is_white" format="boolean" />
+
+
+
+    <attr name="is_debug" format="boolean" />
+    <attr name="activity_mode" format="integer" />
+
+    <!-- 主界面 tab样式 -->
+    <attr name="home_tab_menu" format="reference" />
+
+    <declare-styleable name="CommontTitleBarView">
+        <attr name="bar_title" format="string|reference" />
+        <attr name="bar_title_color" format="color|reference" />
+        <attr name="bar_title_size" format="dimension" />
+
+        <attr name="divider_enable" format="boolean" />
+        <attr name="bar_right_text" format="string|reference" />
+        <attr name="bar_right_text_color" format="color" />
+        <attr name="bar_right_text_size" format="dimension" />
+        <attr name="bar_right_text_color_press" format="color" />
+
+        <attr name="bar_right_top_icon" format="reference" />
+        <attr name="bar_right_left_icon" format="reference" />
+        <attr name="bar_right_right_icon" format="reference" />
+        <attr name="bar_right_bottom_icon" format="reference" />
+        <attr name="bar_right_drawable_padding" format="dimension" />
+
+        <attr name="bar_right_icon" format="reference" />
+        <attr name="bar_right_show_type">
+            <enum name="text" value="1" />
+            <enum name="icon" value="2" />
+            <enum name="none" value="0" />
+        </attr>
+
+        <attr name="bar_back_icon" format="reference" />
+        <attr name="bar_bg_color" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SmileyLoadingView">
+        <!-- animation duration -->
+        <attr name="duration" format="integer" />
+        <!-- stroke width -->
+        <attr name="strokeWidth" format="dimension" />
+        <!-- stroke color -->
+        <attr name="strokeColor" format="color" />
+        <!-- animation repeat count -->
+        <attr name="animRepeatCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="WithMaxHeightScrollView">
+        <attr name="max_height" format="dimension" />
+    </declare-styleable>
+
+
+</resources>
