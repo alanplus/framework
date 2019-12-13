@@ -1,5 +1,7 @@
 package com.alan.framework.net;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 /**
@@ -8,14 +10,16 @@ import java.util.HashMap;
  * Date: 2017/11/6 11:14
  * Company: WeiCi
  */
-public class ApiResult {
+public class ApiResult<T> {
 
     public int code;
     public String msg;
     public String url;
-    public Object object;
+    public T t;
 
     public HashMap<String, Object> map;
+
+    protected JSONObject jsonObject;
 
     public int type;
 
@@ -31,19 +35,16 @@ public class ApiResult {
     }
 
     public ApiResult(int code, String msg, String url) {
-        this(code, msg, url, null);
-    }
-
-    public ApiResult(int code, String msg, String url, Object object) {
-        this(code, msg, url, object, null);
-    }
-
-    public ApiResult(int code, String msg, String url, Object object, HashMap<String, Object> map) {
         this.code = code;
         this.msg = msg;
-        this.object = object;
         this.url = url;
-        this.map = map;
     }
 
+    public JSONObject getJsonObject() {
+        return jsonObject;
+    }
+
+    public void setJsonObject(JSONObject jsonObject) {
+        this.jsonObject = jsonObject;
+    }
 }

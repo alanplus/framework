@@ -1,11 +1,15 @@
 package com.alan.framework.net;
 
 
+import android.graphics.Bitmap;
+
 import androidx.annotation.IntDef;
 
 import com.alan.common.AndroidTools;
 import com.alan.framework.LibConfig;
 import com.alan.framework.rx.RxSchedulers;
+
+import java.util.HashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -16,7 +20,7 @@ import io.reactivex.functions.Function;
 /**
  * Created by Mouse on 2019/4/2.
  */
-public class ApiRequest {
+public class ApiRequest<T> {
 
     private ApiConfig apiConfig;
 
@@ -33,11 +37,11 @@ public class ApiRequest {
     }
 
 
-    public ApiResult executeByGet() {
+    public ApiResult<T> executeByGet() {
         return execute(true);
     }
 
-    public ApiResult executeByPost() {
+    public ApiResult<T> executeByPost() {
         return execute(false);
     }
 
@@ -49,7 +53,7 @@ public class ApiRequest {
         executeOnThread(false);
     }
 
-    public ApiResult execute(boolean isGet) {
+    public ApiResult<T> execute(boolean isGet) {
         if (null == apiConfig) {
             return new ApiResult(ERROR_CODE_NO_DATA);
         }
@@ -60,6 +64,18 @@ public class ApiRequest {
         String string = isGet ? OkHttpUtil.getStrByPost(apiConfig.url(), apiConfig.params()) : OkHttpUtil.getStrByPost(apiConfig.url(), apiConfig.params());
         ApiResult apiResult = apiConfig.onResultCallback(string);
         return apiResult;
+    }
+
+    public ApiResult<Bitmap> executebyGetBitmap(){
+        ApiResult result = new ApiResult(-1);
+        String url = apiConfig.url();
+        HashMap<String, String> params = apiConfig.params();
+        Bitmap bitmap = OkHttpUtil.getBitmapByGet(url, params);
+        if(null!=bitmap){
+            result.code = 200;
+            result.t = bitmap;
+        }
+        return result;
     }
 
 

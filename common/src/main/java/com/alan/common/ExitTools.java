@@ -30,12 +30,12 @@ public class ExitTools {
             return;
         }
         count++;
-        ToastManager.getInstance().showToast(activity, ResourceTools.getResourceStr(R.string.home_exit_msg));
+        ToastManager.getInstance().showToast(activity, ResourceTools.getResourceStr(activity,R.string.home_exit_msg));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 count = 0;
             }
-        }, ResourceTools.getResourceInteger(R.integer.home_exit_duration));
+        }, ResourceTools.getResourceInteger(activity,R.integer.home_exit_duration));
     }
 }

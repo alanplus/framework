@@ -7,8 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alan.framework.LibConfig;
-import com.alan.framework.activity.state.view.CommonFailureView;
-import com.alan.framework.activity.state.view.CommonLoadingView;
+import com.alan.framework.dialog.LoadingDialog;
 
 
 /**
@@ -19,6 +18,7 @@ public class StateRelativeLayout extends RelativeLayout implements IStateView {
 
     protected ILoadingView iLoadingView;
     protected IFailureView iFailureView;
+
 
     public StateRelativeLayout(Context context) {
         super(context);
@@ -54,8 +54,7 @@ public class StateRelativeLayout extends RelativeLayout implements IStateView {
     }
 
     protected LayoutParams generateLoadingLayoutParams() {
-        LayoutParams lp = new LayoutParams(-1, -1);
-        return lp;
+        return new LayoutParams(-1, -1);
     }
 
     protected View generateLoadingView(String text) {
@@ -82,4 +81,5 @@ public class StateRelativeLayout extends RelativeLayout implements IStateView {
             }
         }
     }
+
 }

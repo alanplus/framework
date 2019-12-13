@@ -17,7 +17,7 @@ import com.alan.framework.gloabel.Constant;
  * 时 间：2019-11-21
  * 简 述：<功能简述>
  */
-public class StateHelper implements IBaseStateView {
+public class StateHelper implements IBaseStateView{
 
     protected IStateView iStateView;
 
@@ -38,8 +38,14 @@ public class StateHelper implements IBaseStateView {
             this.iStateConfig = iStateConfig;
             iStateView = initStateView(viewGroup);
         } catch (XmException e) {
-            Logger.e(Constant.TAG_ALAN_ERROR,e.getMessage());
+            Logger.e(Constant.TAG_ALAN_ERROR, e.getMessage());
         }
+    }
+
+    public StateHelper(Context context, IStateView iStateView, IStateConfig iStateConfig) {
+        this.context = context;
+        this.iStateConfig = iStateConfig;
+        this.iStateView = iStateView;
     }
 
 
@@ -47,6 +53,10 @@ public class StateHelper implements IBaseStateView {
         if (null == viewGroup) {
             throw new XmException(0, EXCEPTION_VIEW_NULL);
         }
+        if (viewGroup instanceof IStateView) {
+            return (IStateView) viewGroup;
+        }
+
         int childCount = viewGroup.getChildCount();
         if (childCount == 0) {
             throw new XmException(0, EXCEPTION_VIEW_NOT_FIND);

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alan.common.AndroidTools;
 import com.alan.common.R;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
@@ -63,7 +64,15 @@ public class StatusBarTools implements IStatusBarTools {
 
 
     public static boolean isMiUI() {
-        return Build.MANUFACTURER.equals("Xiaomi");
+        Class var6 = null;
+        try {
+            var6 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field var7 = var6.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            return Build.MANUFACTURER.equals("Xiaomi");
+        } catch (Exception e) {
+
+        }
+        return false;
     }
 
     public static boolean isFlyme() {
@@ -123,7 +132,7 @@ public class StatusBarTools implements IStatusBarTools {
         if (resourceId > 0) {
             return context.getResources().getDimensionPixelSize(resourceId);
         }
-        return AndroidTools.dip2px( 28);
+        return AndroidTools.dip2px(28);
     }
 
 }

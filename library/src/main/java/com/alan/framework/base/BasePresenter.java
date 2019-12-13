@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 
+import com.alan.common.ToastManager;
 import com.alan.framework.activity.IBaseStateView;
 
 /**
@@ -11,7 +12,7 @@ import com.alan.framework.activity.IBaseStateView;
  * 时 间：2019-11-21
  * 简 述：<功能简述>
  */
-public abstract class BasePresenter<T extends IBaseStateView>{
+public abstract class BasePresenter<T extends IBaseStateView> {
 
     protected T iBaseStateView;
     protected Context context;
@@ -22,5 +23,9 @@ public abstract class BasePresenter<T extends IBaseStateView>{
     }
 
     public abstract boolean init(Intent intent);
+
+    public void showMessage(String text) {
+        ToastManager.getInstance().showToast(context, text);
+    }
 
 }

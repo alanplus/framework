@@ -13,16 +13,16 @@ import androidx.core.content.ContextCompat;
  */
 public class ResourceTools {
 
-    public static int getResourceInteger(int res) {
-        return Resources.getSystem().getInteger(res);
+    public static int getResourceInteger(Context context,int res) {
+        return context.getResources().getInteger(res);
     }
 
-    public static String getResourceStr(int res) {
-        return Resources.getSystem().getString(res);
+    public static String getResourceStr(Context context,int res) {
+        return context.getResources().getString(res);
     }
 
-    public static Boolean getResourceBool(int res) {
-        return  Resources.getSystem().getBoolean(res);
+    public static Boolean getResourceBool(Context context,int res) {
+        return  context.getResources().getBoolean(res);
     }
 
     public static int getColorFromTheme(Context context, int id, int defaultColor) {

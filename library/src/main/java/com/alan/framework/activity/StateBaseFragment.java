@@ -12,7 +12,7 @@ import com.alan.framework.dialog.LoadingDialog;
  * 时 间：2019-11-21
  * 简 述：<功能简述>
  */
-public abstract class StateBaseFragment extends BaseFragment implements IStateConfig, LoadingDialog.OnDialogDismissListener {
+public abstract class StateBaseFragment extends BaseFragment implements IBaseStateView, IStateConfig, LoadingDialog.OnDialogDismissListener {
 
     protected StateHelper stateHelper;
 
@@ -20,6 +20,7 @@ public abstract class StateBaseFragment extends BaseFragment implements IStateCo
     protected void initView() {
         stateHelper = new StateHelper(activity, (ViewGroup) mRoot, this);
     }
+
 
     @Override
     public String getLoadingSuccessText() {
@@ -39,5 +40,40 @@ public abstract class StateBaseFragment extends BaseFragment implements IStateCo
     @Override
     public void onDialogDismiss() {
 
+    }
+
+    @Override
+    public void showLoadingState() {
+        stateHelper.showLoadingState();
+    }
+
+    @Override
+    public void showLoadingState(String text) {
+        stateHelper.showLoadingState(text);
+    }
+
+    @Override
+    public void showFailureState(String text, boolean isRetry) {
+        stateHelper.showFailureState(text,isRetry);
+    }
+
+    @Override
+    public void showSuccessState() {
+        stateHelper.showSuccessState();
+    }
+
+    @Override
+    public void showLoadingDialog(String dialog) {
+        stateHelper.showLoadingState(dialog);
+    }
+
+    @Override
+    public void dismissLoadingDialog(boolean isSuccess) {
+        stateHelper.dismissLoadingDialog(isSuccess);
+    }
+
+    @Override
+    public void showToast(String text) {
+        stateHelper.showToast(text);
     }
 }

@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.alan.framework.LibConfig;
-import com.alan.framework.activity.state.view.CommonFailureView;
-import com.alan.framework.activity.state.view.CommonLoadingView;
 
 
 /**
@@ -23,6 +21,7 @@ public class StateLinearLayout extends LinearLayout implements IStateView {
 
     protected ILoadingView iLoadingView;
     protected IFailureView iFailureView;
+
 
     public StateLinearLayout(Context context) {
         this(context, null);
@@ -89,5 +88,7 @@ public class StateLinearLayout extends LinearLayout implements IStateView {
             }
         }
     }
+
+
 
 }

@@ -2,6 +2,7 @@ package com.alan.framework.gloabel;
 
 import android.app.Activity;
 
+import com.alan.common.Logger;
 import com.alan.framework.LibConfig;
 
 import java.util.ArrayList;
@@ -52,6 +53,16 @@ public class ActivityManager {
         activityList.remove(activity);
         if (LibConfig.getIActivityListener() != null) {
             LibConfig.getIActivityListener().onDestroy(activity);
+        }
+    }
+
+    public static void finishAll() {
+        for (Activity activity : activityList) {
+            try {
+                activity.finish();
+            } catch (Exception e) {
+                Logger.error(e);
+            }
         }
     }
 

@@ -28,7 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
     }
 
-    private void initStatusBar() {
+    protected void initStatusBar() {
         int bgColor = ResourceTools.getColorFromTheme(this, R.attr.status_bar_color, Color.WHITE);
         boolean textColorIsWhite = ResourceTools.getBoolFromTheme(this, R.attr.status_bar_text_is_white, false);
         StatusBarTools.getStatusBarTools().setStatusBarColor(this, bgColor, textColorIsWhite);

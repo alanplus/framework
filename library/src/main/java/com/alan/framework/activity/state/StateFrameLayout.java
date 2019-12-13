@@ -7,13 +7,14 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.alan.framework.LibConfig;
+import com.alan.framework.dialog.LoadingDialog;
 
 
 /**
  * Created by Mouse on 2018/9/21.
  */
 
-public class StateFrameLayout extends FrameLayout implements IStateView {
+public class StateFrameLayout extends FrameLayout implements IStateView{
 
     protected ILoadingView iLoadingView;
     protected IFailureView iFailureView;
@@ -80,4 +81,5 @@ public class StateFrameLayout extends FrameLayout implements IStateView {
             }
         }
     }
+
 }

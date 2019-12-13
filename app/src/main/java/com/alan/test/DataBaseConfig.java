@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.alan.db.IDatabaseConfig;
 import com.alan.db.base.DbModel;
+import com.alan.db.model.Config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class DataBaseConfig implements IDatabaseConfig {
     public List<Class<? extends DbModel>> getTables(Context context) {
         List<Class<? extends DbModel>> classList = new ArrayList<>();
         classList.add(Person.class);
+        classList.add(Config.class);
         return classList;
     }
 

@@ -1,5 +1,7 @@
 package com.alan.framework.net;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -62,7 +64,7 @@ public class OkHttpUtil {
      * 取消所有请求请求
      */
     public static void cancelAll() {
-        okHttpClient.dispatcher().cancelAll();
+        getInstance().dispatcher().cancelAll();
     }
 
     /**
@@ -73,7 +75,7 @@ public class OkHttpUtil {
      * @throws IOException
      */
     private static Response execute(Request request) throws IOException {
-        return okHttpClient.newCall(request).execute();
+        return getInstance().newCall(request).execute();
     }
 
     /**
@@ -83,7 +85,7 @@ public class OkHttpUtil {
      * @param responseCallback
      */
     private static void enqueue(Request request, Callback responseCallback) {
-        okHttpClient.newCall(request).enqueue(responseCallback);
+        getInstance().newCall(request).enqueue(responseCallback);
     }
 
     private static Response getResponseByGet(String url, Map<String, String> map) throws IOException {
@@ -156,6 +158,27 @@ public class OkHttpUtil {
         return getStrByPost(url, map, true);
     }
 
+    /**
+     * 同步 get 方法
+     *
+     * @param url
+     * @param map
+     * @return
+     * @throws IOException
+     */
+    public static Bitmap getBitmapByGet(String url, Map<String, String> map) {
+        try {
+            Response response = getResponseByGet(url, map);
+            if (response.isSuccessful()) {
+                InputStream in = response.body().byteStream();
+                return BitmapFactory.decodeStream(in);
+            }
+        } catch (Exception e) {
+            Logger.error(e);
+        }
+        return null;
+    }
+
 
     public static String getStrByPost(String url, HashMap<String, String> map, boolean encoder) {
         try {
@@ -172,12 +195,12 @@ public class OkHttpUtil {
 
     public static Response getResponseByListPost(String url, String body) throws IOException {
         Request request = new Request.Builder().url(url).post(RequestBody.create(MEDIA_TYPE_APPLICATION, body)).build();
-        return okHttpClient.newCall(request).execute();
+        return getInstance().newCall(request).execute();
     }
 
     public static Response getResponseByPost(String url, String body) throws IOException {
         Request request = new Request.Builder().url(url).post(RequestBody.create(MEDIA_TYPE_APPLICATION, body)).build();
-        return okHttpClient.newCall(request).execute();
+        return getInstance().newCall(request).execute();
     }
 
     public static String getStrByPost(String url, String body) {
@@ -214,7 +237,7 @@ public class OkHttpUtil {
         Request request = new Request.Builder().url(url).build();
         try {
             FileOutputStream out = new FileOutputStream(file);
-            Response response = okHttpClient.newCall(request).execute();
+            Response response = getInstance().newCall(request).execute();
             InputStream in = response.body().byteStream();
             byte[] buf = new byte[2048];
             int len = 0;
